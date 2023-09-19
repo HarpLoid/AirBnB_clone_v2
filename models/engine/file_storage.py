@@ -15,6 +15,7 @@ class FileStorage:
             for key, val in self.__objects.items():
                 if str(cls) in key:
                     cls_dict.update({key: val})
+            print()
             return cls_dict
         return FileStorage.__objects
 

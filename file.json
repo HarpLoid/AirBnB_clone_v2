@@ -27,5 +27,19 @@
     "latitude": 37.773972,
     "longitude": -122.431297,
     "__class__": "Place"
+  },
+  "State.3347aeac-ae0b-428a-ae44-ebd92cd01498": {
+    "id": "3347aeac-ae0b-428a-ae44-ebd92cd01498",
+    "created_at": "2023-09-19T22:21:19.973909",
+    "updated_at": "2023-09-19T22:21:19.973925",
+    "name": "California",
+    "__class__": "State"
+  },
+  "State.7f892d8c-2a6d-47bf-a75c-945abfaf188d": {
+    "id": "7f892d8c-2a6d-47bf-a75c-945abfaf188d",
+    "created_at": "2023-09-19T22:21:19.981424",
+    "updated_at": "2023-09-19T22:21:19.981432",
+    "name": "Nevada",
+    "__class__": "State"
   }
 }

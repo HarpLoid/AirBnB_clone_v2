@@ -1,22 +1,22 @@
 {
-  "State.6e6a2b48-9f43-4320-84ed-9ffbe5d7b768": {
-    "id": "6e6a2b48-9f43-4320-84ed-9ffbe5d7b768",
-    "created_at": "2023-09-19T17:17:15.731294",
-    "updated_at": "2023-09-19T17:17:15.731305",
+  "State.7e70314a-3e9f-45ed-8cdf-5bc43e2a47d6": {
+    "id": "7e70314a-3e9f-45ed-8cdf-5bc43e2a47d6",
+    "created_at": "2023-09-20T00:18:19.080369",
+    "updated_at": "2023-09-20T00:18:19.080919",
     "name": "California",
     "__class__": "State"
   },
-  "State.2c40c8fe-3273-493f-bd56-50e31b61eccf": {
-    "id": "2c40c8fe-3273-493f-bd56-50e31b61eccf",
-    "created_at": "2023-09-19T17:17:15.732305",
-    "updated_at": "2023-09-19T17:17:15.732314",
+  "State.774576a5-f5c4-42e3-ad3d-4f46baa2a8d1": {
+    "id": "774576a5-f5c4-42e3-ad3d-4f46baa2a8d1",
+    "created_at": "2023-09-20T00:18:19.107079",
+    "updated_at": "2023-09-20T00:18:19.107126",
     "name": "Arizona",
     "__class__": "State"
   },
-  "Place.14890305-a13d-475c-8098-023c2e171ee9": {
-    "id": "14890305-a13d-475c-8098-023c2e171ee9",
-    "created_at": "2023-09-19T17:17:15.733788",
-    "updated_at": "2023-09-19T17:17:15.733806",
+  "Place.d66ea04f-540d-4cb9-b269-69ee4a02f9da": {
+    "id": "d66ea04f-540d-4cb9-b269-69ee4a02f9da",
+    "created_at": "2023-09-20T00:18:19.117630",
+    "updated_at": "2023-09-20T00:18:19.118042",
     "city_id": 1,
     "user_id": 1,
     "name": "My little house",
@@ -27,19 +27,5 @@
     "latitude": 37.773972,
     "longitude": -122.431297,
     "__class__": "Place"
-  },
-  "State.3347aeac-ae0b-428a-ae44-ebd92cd01498": {
-    "id": "3347aeac-ae0b-428a-ae44-ebd92cd01498",
-    "created_at": "2023-09-19T22:21:19.973909",
-    "updated_at": "2023-09-19T22:21:19.973925",
-    "name": "California",
-    "__class__": "State"
-  },
-  "State.7f892d8c-2a6d-47bf-a75c-945abfaf188d": {
-    "id": "7f892d8c-2a6d-47bf-a75c-945abfaf188d",
-    "created_at": "2023-09-19T22:21:19.981424",
-    "updated_at": "2023-09-19T22:21:19.981432",
-    "name": "Nevada",
-    "__class__": "State"
   }
 }

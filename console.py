@@ -141,12 +141,12 @@ class HBNBCommand(cmd.Cmd):
         elif class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-        new_instance = HBNBCommand.classes[class_name]()
-        #storage.save()
+        new_instance = HBNBCommand.classes[class_name](**param_dict)
+        storage.save()
         print(new_instance.id)
-        key = class_name + '.' + new_instance.id
-        attrib_dict = storage.all()[key]
-        attrib_dict.__dict__.update(**param_dict)
+        # key = class_name + '.' + new_instance.id
+        # attrib_dict = storage.all()[key]
+        # attrib_dict.__dict__.update(**param_dict)
         storage.save()
 
     def help_create(self):

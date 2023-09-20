@@ -27,7 +27,7 @@ class Place(BaseModel, Base):
     user_id = Column(String(60), ForeignKey('users.id'),
                      nullable=False)
     name = Column(String(128), nullable=False)
-    description = Column(String(1024), nullable=False)
+    description = Column(String(1024))
     number_rooms = Column(Integer, nullable=False, default=0)
     number_bathrooms = Column(Integer, nullable=False, default=0)
     max_guest = Column(Integer, nullable=False, default=0)
@@ -35,6 +35,8 @@ class Place(BaseModel, Base):
     latitude = Column(Float)
     longitude = Column(Float)
     reviews = relationship('Review', backref='place', cascade='delete')
+    amenities = relationship('Amenity', secondary='place_amenity',
+                             viewonly=False, overlaps='place_amenities')
     amenity_ids = []
 
     if getenv('HBNB_TYPE_STORAGE', None) != 'db':

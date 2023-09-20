@@ -119,8 +119,7 @@ class HBNBCommand(cmd.Cmd):
         class_name = param_list.pop(0)
         param_dict = {}
         for param in param_list:
-            key = param.split('=')[0]
-            val = param.split('=')[1]
+            key, val = tuple(param.split('='))
             if '"' in val:
                 val = (val.strip('"')
                        .replace('_', ' '))
@@ -142,12 +141,11 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         new_instance = HBNBCommand.classes[class_name](**param_dict)
-        storage.save()
         print(new_instance.id)
+        new_instance.save()
         # key = class_name + '.' + new_instance.id
         # attrib_dict = storage.all()[key]
         # attrib_dict.__dict__.update(**param_dict)
-        storage.save()
 
     def help_create(self):
         """ Help information for the create method """
@@ -178,7 +176,7 @@ class HBNBCommand(cmd.Cmd):
 
         key = c_name + "." + c_id
         try:
-            print(storage._FileStorage__objects[key])
+            print(storage.all()[key])
         except KeyError:
             print("** no instance found **")
 
@@ -222,21 +220,17 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, args):
         """ Shows all objects, or all objects of a class"""
-        print_list = []
-
         if args:
             args = args.split(' ')[0]  # remove possible trailing args
             if args not in HBNBCommand.classes:
                 print("** class doesn't exist **")
                 return
-            for k, v in storage._FileStorage__objects.items():
-                if k.split('.')[0] == args:
-                    print_list.append(str(v))
-        else:
-            for k, v in storage._FileStorage__objects.items():
-                print_list.append(str(v))
 
-        print(print_list)
+            obj = storage.all(self.classes[args])
+            print([str(obj[k]) for k in obj])
+        else:
+            obj = storage.all()
+            print([str(obj[k]) for k in obj])
 
     def help_all(self):
         """ Help information for the all command """

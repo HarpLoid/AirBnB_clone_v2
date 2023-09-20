@@ -17,8 +17,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Instatntiates a new model"""
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
+        self.updated_at = self.created_at = datetime.now()
 
         for key, value in kwargs.items():
             if key != '__class__':
@@ -32,7 +31,7 @@ class BaseModel:
             self.updated_at = datetime.strptime(self.updated_at,
                                                 date_format)
 
-        self.save()
+        #self.save()
         # if not kwargs:
         #     from models import storage
         #     self.id = str(uuid.uuid4())
@@ -46,15 +45,16 @@ class BaseModel:
         #                                              date_format)
         #     del kwargs['__class__']
         #     self.__dict__.update(kwargs)
-            # for k, v in kwargs.items():
-            #     if k == "__class__":
-            #         pass
-            #     elif k == "created_at":
-            #         self.created_at = datetime.strptime(v, date_format)
-            #     elif k == "updated_at":
-            #         self.updated_at = datetime.strptime(v, date_format)
-            #     else:
-            #         setattr(self, k, v)
+
+        # for k, v in kwargs.items():
+        #     if k == "__class__":
+        #         pass
+        #     elif k == "created_at":
+        #         self.created_at = datetime.strptime(v, date_format)
+        #     elif k == "updated_at":
+        #         self.updated_at = datetime.strptime(v, date_format)
+        #     else:
+        #         setattr(self, k, v)
 
     def __str__(self):
         """Returns a string representation of the instance"""
@@ -70,7 +70,7 @@ class BaseModel:
 
     def delete(self):
         from models import storage
-        storage.delete()
+        storage.delete(self)
 
     def to_dict(self):
         """Convert instance into dict format"""
@@ -80,5 +80,6 @@ class BaseModel:
                           (str(type(self)).split('.')[-1]).split('\'')[0]})
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
-        del dictionary['_sa_instance_state']
+        if hasattr(self, '_sa_instance_state'):
+            del dictionary['_sa_instance_state']
         return dictionary

@@ -13,6 +13,7 @@ from models.review import Review
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session, relationship
 
+
 class DBStorage:
     """
     Manages storage of object to the Database

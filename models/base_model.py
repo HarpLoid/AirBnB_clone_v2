@@ -24,7 +24,7 @@ class BaseModel:
             if key != '__class__':
                 setattr(self, key, value)
 
-        date_format = '%Y-%m-%d %H:%M:%S.%f'
+        date_format = '%Y-%m-%dT%H:%M:%S.%f'
         if isinstance(self.created_at, str):
             self.created_at = datetime.strptime(self.created_at,
                                                 date_format)

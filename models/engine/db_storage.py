@@ -11,7 +11,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session, relationship
+from sqlalchemy.orm import sessionmaker, scoped_session
 
 
 class DBStorage:

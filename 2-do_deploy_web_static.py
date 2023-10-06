@@ -8,6 +8,9 @@ from fabric.api import task, local, run, env, put
 from datetime import datetime
 
 
+env.hosts = ['52.91.117.92',
+             '100.25.111.11']
+
 @task
 def do_pack():
     """

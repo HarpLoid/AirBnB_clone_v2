@@ -11,6 +11,7 @@ from datetime import datetime
 env.hosts = ['52.91.117.92',
              '100.25.111.11']
 
+
 @task
 def do_pack():
     """
@@ -29,6 +30,7 @@ def do_pack():
 
     return None
 
+
 @task
 def do_deploy(archive_path):
     """
@@ -39,12 +41,12 @@ def do_deploy(archive_path):
     filename_ext = os.path.basename(archive_path)
     filename = os.path.splitext(filename_ext)
     dir_path = "/data/web_static/releases/"
-    
+
     put(archive_path, "/tmp/")
     run("rm -rf {}{}/".format(dir_path, filename))
     run("mkdir -p {}{}".format(dir_path, filename))
-    run("tat -xzf /tmp/{} -C {}{}"format(filename_ext,
-                                         dir_path, filename))
+    run("tat -xzf /tmp/{} -C {}{}".format(filename_ext,
+                                          dir_path, filename))
     run("rm -rf /tmp/{}".format(filename_ext))
     run("mv {0}{1}/web_static/* {0}{1}/".format(dir_path,
                                                 filename))
@@ -54,4 +56,3 @@ def do_deploy(archive_path):
                                                       filename))
     print("New version deployed!")
     return True
-

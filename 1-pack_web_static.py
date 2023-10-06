@@ -8,6 +8,9 @@ from datetime import datetime
 
 
 def do_pack():
+    """
+    creates a .tgz archive from the contents of the web_static folder
+    """
     fmt_date = datetime.utcnow().strftime('%Y%m%d%H%M%S')
     file_name = "versions/web_static_{}".format(fmt_date)
     command = "mkdir -p versions"

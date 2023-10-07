@@ -14,7 +14,7 @@ sudo mkdir -p /data/web_static/{releases/test,shared}
 
 sudo touch /data/web_static/releases/test/index.html
 
-echo $HTML_TEXT | sudo tee /data/web_static/releases/test/index.html > /dev/null
+echo "$HTML_TEXT" | sudo tee /data/web_static/releases/test/index.html > /dev/null
 
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 

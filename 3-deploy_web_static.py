@@ -39,13 +39,13 @@ def do_deploy(archive_path):
     if not os.path.exists(archive_path):
         return False
     filename_ext = os.path.basename(archive_path)
-    filename = os.path.splitext(filename_ext)
+    filename = os.path.splitext(filename_ext)[0]
     dir_path = "/data/web_static/releases/"
 
     put(archive_path, "/tmp/")
     run("rm -rf {}{}/".format(dir_path, filename))
     run("mkdir -p {}{}".format(dir_path, filename))
-    run("tat -xzf /tmp/{} -C {}{}".format(filename_ext,
+    run("tar -xzf /tmp/{} -C {}{}".format(filename_ext,
                                           dir_path, filename))
     run("rm -rf /tmp/{}".format(filename_ext))
     run("mv {0}{1}/web_static/* {0}{1}/".format(dir_path,

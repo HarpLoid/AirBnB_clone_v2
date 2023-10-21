@@ -97,8 +97,26 @@ def states_list():
     from models import storage
 
     state_obj = [sts for sts in storage.all("State").values()]
+    print(state_obj)
 
     return render_template('7-states_list.html',
+                           state_obj=state_obj)
+
+
+@app.route("/cities_by_states", strict_slashes=False)
+def cities_by_states():
+    """
+    Displays a HTML page: (inside the tag BODY)
+        H1 tag: “States”
+        UL tag: with the list of all State objects present in DBStorage sorted by name (A->Z) tip
+        LI tag: description of one State: <state.id>: <B><state.name></B> + UL tag: with the list of City objects linked to the State sorted by name (A->Z)
+        LI tag: description of one City: <city.id>: <B><city.name></B>
+    """
+    from models import storage
+
+    state_obj = [sts for sts in storage.all("State").values()]
+
+    return render_template('8-cities_by_states.html',
                            state_obj=state_obj)
 
 

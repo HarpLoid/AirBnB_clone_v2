@@ -5,6 +5,7 @@ Starts a Flask web application
     listening on 0.0.0.0, port 5000
 """
 from flask import Flask, render_template
+from models import storage
 
 
 app = Flask(__name__)
@@ -81,7 +82,6 @@ def tear_down(n):
     Removes the current SQLAlchemy Session after
     each request
     """
-    from models import storage
     storage.close()
 
 
@@ -94,7 +94,6 @@ def states_list():
         DBStorage sorted by name (A->Z) tip
         LI tag: description of one State: <state.id>: <B><state.name></B>
     """
-    from models import storage
 
     state_obj = [sts for sts in storage.all("State").values()]
     print(state_obj)
@@ -116,7 +115,6 @@ def cities_by_states():
         linked to the State sorted by name (A->Z)
         LI tag: description of one City: <city.id>: <B><city.name></B>
     """
-    from models import storage
 
     state_obj = [sts for sts in storage.all("State").values()]
 

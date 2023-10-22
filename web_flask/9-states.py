@@ -96,7 +96,6 @@ def states_list():
         LI tag: description of one State: <state.id>: <B><state.name></B>
     """
     state_obj = [sts for sts in storage.all("State").values()]
-    print(state_obj)
 
     return render_template('7-states_list.html',
                            state_obj=state_obj)
